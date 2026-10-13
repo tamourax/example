@@ -2,8 +2,9 @@
 
 This existing project now has shared widgets, English/Arabic ARB localization
 (including RTL), Material 3 light/dark themes, Cubits, REST networking and Firebase.
-The home screen demonstrates the shared components using local paginated data;
-it does not write sample records to your Firebase project.
+The home screen demonstrates the shared components and manages customer records
+in Firestore collection `2` using the schema shown in the Firebase Console image.
+`App()` can still run without Firebase for previews by using local demo data.
 
 ## Structure
 
@@ -92,8 +93,8 @@ single operations and `BlocBuilder`/`BlocListener` for state and side effects.
 
 Change colors/spacing/type centrally in `core/theme`. Arabic uses system font
 fallback; register your own Arabic/Latin font in pubspec before setting a family.
-Settings support English/Arabic and theme switching in memory; preferences are
-not persisted across restarts.
+Settings support English/Arabic and theme switching in memory. The app starts in
+light mode; preferences are not persisted across restarts.
 
 ## REST
 
@@ -148,9 +149,13 @@ equivalent get/post/put/patch/delete methods. Cursor pages expose document IDs,
 pages, and reset the cursor on refresh. Ordered fields must exist in documents;
 custom queries may need indexes. Map snapshots to your own models.
 
-Configuration does not create a Firestore database, enable Auth providers,
-authenticate a user, or change deployed security rules. Set up those for your
-feature in [Firebase Console](https://console.firebase.google.com/project/appy-d6c72/overview).
-Live reads/writes require your deployed rules and authentication to allow them.
-No production CRUD writes or rule deployments are performed by this starter.
+The configured Firebase project has a native Firestore `(default)` database in
+`nam5` (Standard edition), with real-time updates enabled and scheduled backups
+disabled. `FirebaseFirestore.instance` in this starter connects to that default
+database. The home screen pages through collection `2`; use its add button and
+row menu to create, edit, and delete documents with `name`, `date`, `gender`,
+and `id` fields. Pull down to refresh. `FirestoreService.watch` is available for
+live document updates. Reads/writes require deployed rules to allow them; the app
+does not seed records or change deployed security rules.
+Manage the database in [Firebase Console](https://console.firebase.google.com/project/appy-d6c72/firestore).
 Firebase setup reference: [official Flutter guide](https://firebase.google.com/docs/flutter/setup).
