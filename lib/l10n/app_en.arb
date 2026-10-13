@@ -1,0 +1,16 @@
+{
+  "@@locale": "en",
+  "appTitle": "App Starter",
+  "welcome": "Your foundation is ready",
+  "description": "Reusable widgets, localization, Cubit, REST and Firebase services.",
+  "primaryAction": "Refresh list",
+  "secondaryAction": "Change language",
+  "emptyList": "Nothing here yet",
+  "somethingWentWrong": "Something went wrong. Please try again.",
+  "retry": "Try again",
+  "itemTitle": "Item {number}",
+  "@itemTitle": {"placeholders": {"number": {"type": "int"}}},
+  "listTitle": "Pagination example",
+  "firebaseUnavailable": "Firebase is unavailable. Check configuration and restart.",
+  "restart": "Retry setup"
+}

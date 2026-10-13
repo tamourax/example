@@ -1,0 +1,15 @@
+{
+  "@@locale": "ar",
+  "appTitle": "بداية التطبيق",
+  "welcome": "أساس تطبيقك جاهز",
+  "description": "عناصر قابلة لإعادة الاستخدام، ترجمة، Cubit، وخدمات REST وFirebase.",
+  "primaryAction": "تحديث القائمة",
+  "secondaryAction": "تغيير اللغة",
+  "emptyList": "لا توجد عناصر بعد",
+  "somethingWentWrong": "حدث خطأ. يرجى المحاولة مرة أخرى.",
+  "retry": "حاول مرة أخرى",
+  "itemTitle": "العنصر {number}",
+  "listTitle": "مثال تحميل القائمة تدريجيًا",
+  "firebaseUnavailable": "Firebase غير متاح. تحقق من الإعدادات وأعد التشغيل.",
+  "restart": "إعادة محاولة الإعداد"
+}
