@@ -9,6 +9,9 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get fieldRequired => 'هذا الحقل مطلوب';
+
+  @override
   String get appTitle => 'بداية التطبيق';
 
   @override

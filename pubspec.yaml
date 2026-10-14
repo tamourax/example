@@ -71,6 +71,25 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/font/cairo/Cairo-ExtraLight.ttf
+          weight: 200
+        - asset: assets/font/cairo/Cairo-Light.ttf
+          weight: 300
+        - asset: assets/font/cairo/Cairo-Regular.ttf
+          weight: 400
+        - asset: assets/font/cairo/Cairo-Medium.ttf
+          weight: 500
+        - asset: assets/font/cairo/Cairo-SemiBold.ttf
+          weight: 600
+        - asset: assets/font/cairo/Cairo-Bold.ttf
+          weight: 700
+        - asset: assets/font/cairo/Cairo-ExtraBold.ttf
+          weight: 800
+        - asset: assets/font/cairo/Cairo-Black.ttf
+          weight: 900
 
   # To add assets to your application, add an assets section, like this:
   # assets:

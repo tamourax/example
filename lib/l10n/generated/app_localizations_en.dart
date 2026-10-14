@@ -9,6 +9,9 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get fieldRequired => 'This field is required';
+
+  @override
   String get appTitle => 'App Starter';
 
   @override

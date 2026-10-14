@@ -1,5 +1,6 @@
 {
   "@@locale": "ar",
+  "fieldRequired": "هذا الحقل مطلوب",
   "appTitle": "بداية التطبيق",
   "welcome": "أساس تطبيقك جاهز",
   "description": "عناصر قابلة لإعادة الاستخدام، ترجمة، Cubit، وخدمات REST وFirebase.",

@@ -1,5 +1,6 @@
 {
   "@@locale": "en",
+  "fieldRequired": "This field is required",
   "appTitle": "App Starter",
   "welcome": "Your foundation is ready",
   "description": "Reusable widgets, localization, Cubit, REST and Firebase services.",
