@@ -98,6 +98,132 @@ abstract class AppLocalizations {
     Locale('en'),
   ];
 
+  /// No description provided for @trackingTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Tracking Time'**
+  String get trackingTime;
+
+  /// No description provided for @creatingLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Creating New Location'**
+  String get creatingLocation;
+
+  /// No description provided for @locationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Location Description'**
+  String get locationDescription;
+
+  /// No description provided for @locationName.
+  ///
+  /// In en, this message translates to:
+  /// **'Location Name'**
+  String get locationName;
+
+  /// No description provided for @googleMapsLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Location at Google Maps'**
+  String get googleMapsLocation;
+
+  /// No description provided for @latitude.
+  ///
+  /// In en, this message translates to:
+  /// **'Latitude'**
+  String get latitude;
+
+  /// No description provided for @longitude.
+  ///
+  /// In en, this message translates to:
+  /// **'Longitude'**
+  String get longitude;
+
+  /// No description provided for @allowGeofence.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow Geofence'**
+  String get allowGeofence;
+
+  /// No description provided for @country.
+  ///
+  /// In en, this message translates to:
+  /// **'Country'**
+  String get country;
+
+  /// No description provided for @stateProvince.
+  ///
+  /// In en, this message translates to:
+  /// **'State or Province'**
+  String get stateProvince;
+
+  /// No description provided for @city.
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get city;
+
+  /// No description provided for @postalCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Postal Code'**
+  String get postalCode;
+
+  /// No description provided for @locationSetting.
+  ///
+  /// In en, this message translates to:
+  /// **'Location Setting'**
+  String get locationSetting;
+
+  /// No description provided for @allowBreaks.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow Breaks in Attendance'**
+  String get allowBreaks;
+
+  /// No description provided for @allowPause.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow Pause'**
+  String get allowPause;
+
+  /// No description provided for @discard.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard'**
+  String get discard;
+
+  /// No description provided for @create.
+  ///
+  /// In en, this message translates to:
+  /// **'Create'**
+  String get create;
+
+  /// No description provided for @textHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Text Here'**
+  String get textHere;
+
+  /// No description provided for @invalidCoordinate.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid coordinate within range'**
+  String get invalidCoordinate;
+
+  /// No description provided for @invalidMapsUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid Google Maps HTTPS URL'**
+  String get invalidMapsUrl;
+
+  /// No description provided for @locationReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Location details are ready.'**
+  String get locationReady;
+
   /// No description provided for @fieldRequired.
   ///
   /// In en, this message translates to:

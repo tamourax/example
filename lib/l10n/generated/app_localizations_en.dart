@@ -9,6 +9,69 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get trackingTime => 'Tracking Time';
+
+  @override
+  String get creatingLocation => 'Creating New Location';
+
+  @override
+  String get locationDescription => 'Location Description';
+
+  @override
+  String get locationName => 'Location Name';
+
+  @override
+  String get googleMapsLocation => 'Location at Google Maps';
+
+  @override
+  String get latitude => 'Latitude';
+
+  @override
+  String get longitude => 'Longitude';
+
+  @override
+  String get allowGeofence => 'Allow Geofence';
+
+  @override
+  String get country => 'Country';
+
+  @override
+  String get stateProvince => 'State or Province';
+
+  @override
+  String get city => 'City';
+
+  @override
+  String get postalCode => 'Postal Code';
+
+  @override
+  String get locationSetting => 'Location Setting';
+
+  @override
+  String get allowBreaks => 'Allow Breaks in Attendance';
+
+  @override
+  String get allowPause => 'Allow Pause';
+
+  @override
+  String get discard => 'Discard';
+
+  @override
+  String get create => 'Create';
+
+  @override
+  String get textHere => 'Text Here';
+
+  @override
+  String get invalidCoordinate => 'Enter a valid coordinate within range';
+
+  @override
+  String get invalidMapsUrl => 'Enter a valid Google Maps HTTPS URL';
+
+  @override
+  String get locationReady => 'Location details are ready.';
+
+  @override
   String get fieldRequired => 'This field is required';
 
   @override
