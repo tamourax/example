@@ -18,12 +18,22 @@ class AppDialog extends StatelessWidget {
   final String image;
   final Widget? actions;
 
-  static Future<bool> confirmLocation(BuildContext context) async =>
+  static Future<bool> confirmLocation(BuildContext context) async => confirm(
+    context,
+    title: context.l10n.creatingLocations,
+    message: context.l10n.confirmNewLocation,
+  );
+
+  static Future<bool> confirm(
+    BuildContext context, {
+    required String title,
+    required String message,
+  }) async =>
       await showDialog<bool>(
         context: context,
         builder: (context) => AppDialog(
-          title: context.l10n.creatingLocations,
-          message: context.l10n.confirmNewLocation,
+          title: title,
+          message: message,
           image: AppAssets.locationHeader,
           actions: Row(
             children: [
@@ -93,15 +103,19 @@ class AppDialog extends StatelessWidget {
 }
 
 class AppSuccess extends StatelessWidget {
-  const AppSuccess({super.key});
+  const AppSuccess({super.key, this.message});
+  final String? message;
 
-  static Future<void> show(BuildContext context) =>
-      showDialog<void>(context: context, builder: (_) => const AppSuccess());
+  static Future<void> show(BuildContext context, {String? message}) =>
+      showDialog<void>(
+        context: context,
+        builder: (_) => AppSuccess(message: message),
+      );
 
   @override
   Widget build(BuildContext context) => AppDialog(
     title: context.l10n.successful,
-    message: context.l10n.locationAdded,
+    message: message ?? context.l10n.locationAdded,
     image: AppAssets.success,
   );
 }
