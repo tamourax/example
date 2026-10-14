@@ -45,6 +45,13 @@ dependencies:
   cloud_firestore: ^6.10.0
   firebase_auth: ^6.7.0
   intl: ^0.20.2
+  geolocator: ^14.1.1
+  flutter_map: ^8.3.2
+  latlong2: ^0.10.1
+  url_launcher: ^6.3.3
+  firebase_storage: ^13.6.0
+  file_picker: ^13.1.0
+  desktop_drop: ^0.8.4
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +78,25 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/font/cairo/Cairo-ExtraLight.ttf
+          weight: 200
+        - asset: assets/font/cairo/Cairo-Light.ttf
+          weight: 300
+        - asset: assets/font/cairo/Cairo-Regular.ttf
+          weight: 400
+        - asset: assets/font/cairo/Cairo-Medium.ttf
+          weight: 500
+        - asset: assets/font/cairo/Cairo-SemiBold.ttf
+          weight: 600
+        - asset: assets/font/cairo/Cairo-Bold.ttf
+          weight: 700
+        - asset: assets/font/cairo/Cairo-ExtraBold.ttf
+          weight: 800
+        - asset: assets/font/cairo/Cairo-Black.ttf
+          weight: 900
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../core/localization/l10n_extension.dart';
 import '../core/theme/app_theme.dart';
 import '../core/widgets/custom_buttons.dart';
-import '../features/home/presentation/home_page.dart';
+import 'feature_home.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'app_services.dart';
 import 'settings/app_settings_cubit.dart';
@@ -36,6 +36,11 @@ class App extends StatelessWidget {
           theme: AppTheme.light,
           darkTheme: AppTheme.dark,
           themeMode: settings.themeMode,
+          routes: {
+            '/requests': (_) =>
+                FeatureHome(services: services, initialIndex: 1),
+            '/locations': (_) => FeatureHome(services: services),
+          },
           home: isStarting
               ? const Scaffold(body: Center(child: CircularProgressIndicator()))
               : startupFailed
@@ -62,7 +67,7 @@ class App extends StatelessWidget {
                     ),
                   ),
                 )
-              : const HomePage(),
+              : FeatureHome(services: services),
         ),
       ),
     );
