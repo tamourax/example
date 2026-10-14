@@ -98,6 +98,228 @@ abstract class AppLocalizations {
     Locale('en'),
   ];
 
+  /// No description provided for @requests.
+  ///
+  /// In en, this message translates to:
+  /// **'Requests'**
+  String get requests;
+
+  /// No description provided for @submit.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit'**
+  String get submit;
+
+  /// No description provided for @creatingRequestType.
+  ///
+  /// In en, this message translates to:
+  /// **'Creating New Request Type'**
+  String get creatingRequestType;
+
+  /// No description provided for @creatingRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Creating Request'**
+  String get creatingRequest;
+
+  /// No description provided for @confirmNewRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Are You Sure You Want To Create This Request ?'**
+  String get confirmNewRequest;
+
+  /// No description provided for @requestSubmitted.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Request Has Been Successfully Submitted'**
+  String get requestSubmitted;
+
+  /// No description provided for @requestType.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Type'**
+  String get requestType;
+
+  /// No description provided for @requestDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Description'**
+  String get requestDescription;
+
+  /// No description provided for @startDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Date'**
+  String get startDate;
+
+  /// No description provided for @endDate.
+  ///
+  /// In en, this message translates to:
+  /// **'End Date'**
+  String get endDate;
+
+  /// No description provided for @allDay.
+  ///
+  /// In en, this message translates to:
+  /// **'All Day'**
+  String get allDay;
+
+  /// No description provided for @startTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Time'**
+  String get startTime;
+
+  /// No description provided for @endTime.
+  ///
+  /// In en, this message translates to:
+  /// **'End Time'**
+  String get endTime;
+
+  /// No description provided for @requestAttachments.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Attachments'**
+  String get requestAttachments;
+
+  /// No description provided for @upload.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload'**
+  String get upload;
+
+  /// No description provided for @addingAttachment.
+  ///
+  /// In en, this message translates to:
+  /// **'Adding Attachment'**
+  String get addingAttachment;
+
+  /// No description provided for @dragDropFiles.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag & Drop files here'**
+  String get dragDropFiles;
+
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'Or'**
+  String get or;
+
+  /// No description provided for @browseFiles.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse Files'**
+  String get browseFiles;
+
+  /// No description provided for @attachmentLimits.
+  ///
+  /// In en, this message translates to:
+  /// **'Images or PDF • Up to 5 files, 10 MB each'**
+  String get attachmentLimits;
+
+  /// No description provided for @attachmentTooLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'Each attachment must be 10 MB or smaller.'**
+  String get attachmentTooLarge;
+
+  /// No description provided for @attachmentTooMany.
+  ///
+  /// In en, this message translates to:
+  /// **'You can attach up to 5 files per request.'**
+  String get attachmentTooMany;
+
+  /// No description provided for @attachmentUnsupported.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a valid image (PNG, JPG, GIF, WebP, BMP) or PDF file.'**
+  String get attachmentUnsupported;
+
+  /// No description provided for @attachmentReadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not read the selected file. Please try again.'**
+  String get attachmentReadFailed;
+
+  /// No description provided for @attachmentOpenFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not open this attachment. Please try again.'**
+  String get attachmentOpenFailed;
+
+  /// No description provided for @removeAttachment.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove attachment'**
+  String get removeAttachment;
+
+  /// No description provided for @chooseDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose date'**
+  String get chooseDate;
+
+  /// No description provided for @chooseTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose time'**
+  String get chooseTime;
+
+  /// No description provided for @invalidRequestDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid date as YYYY-MM-DD'**
+  String get invalidRequestDate;
+
+  /// No description provided for @endDateBeforeStart.
+  ///
+  /// In en, this message translates to:
+  /// **'End Date must be on or after Start Date'**
+  String get endDateBeforeStart;
+
+  /// No description provided for @invalidRequestTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid time as HH:mm (24-hour)'**
+  String get invalidRequestTime;
+
+  /// No description provided for @endTimeBeforeStart.
+  ///
+  /// In en, this message translates to:
+  /// **'End Time must be on or after Start Time for the same day'**
+  String get endTimeBeforeStart;
+
+  /// No description provided for @noRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'No requests yet. Select Submit to create a request.'**
+  String get noRequests;
+
+  /// No description provided for @requestsLoadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load requests. Please try again.'**
+  String get requestsLoadFailed;
+
+  /// No description provided for @requestSaveFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not submit the request. Check your connection and try again.'**
+  String get requestSaveFailed;
+
+  /// No description provided for @requestSaveDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'You do not have permission to submit requests or upload attachments.'**
+  String get requestSaveDenied;
+
+  /// No description provided for @requestStorageUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Attachment storage is unavailable. Try again or submit without attachments.'**
+  String get requestStorageUnavailable;
+
   /// No description provided for @locations.
   ///
   /// In en, this message translates to:

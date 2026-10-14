@@ -68,8 +68,9 @@ class _AttachmentUploadDialogState extends State<AttachmentUploadDialog> {
               .startAccessingSecurityScopedResource(bookmark: bookmark);
           if (!hasAccess) throw AttachmentFailure.unreadable;
         }
-        if (await item.length() > RequestAttachment.maxBytes)
+        if (await item.length() > RequestAttachment.maxBytes) {
           throw AttachmentFailure.tooLarge;
+        }
         files.add(
           RequestAttachment.fromBytes(item.name, await item.readAsBytes()),
         );
@@ -118,6 +119,7 @@ class _AttachmentUploadDialogState extends State<AttachmentUploadDialog> {
               ),
               const SizedBox(height: 16),
               DropTarget(
+                enable: !_reading,
                 onDragEntered: (_) => setState(() => _dragging = true),
                 onDragExited: (_) => setState(() => _dragging = false),
                 onDragDone: (details) =>

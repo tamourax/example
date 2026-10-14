@@ -46,6 +46,48 @@ Normal startup initializes Firebase before showing the home screen. A loading
 indicator appears during setup, and initialization failures show a localized
 retry screen. Tests can render `const App()` directly without Firebase.
 
+## Requests (task two)
+
+Requests is an independent feature, accessible from the **Requests** navigation
+tab or the `/requests` named route (web: `/#/requests`). The existing Locations
+feature remains accessible from its own tab and `/locations` route.
+
+On the Requests page, **Submit** opens a dialog with required type, description,
+Start Date and End Date. Enter dates as `YYYY-MM-DD` or use the calendar buttons.
+End Date must be on or after Start Date. All Day defaults to off; enabling it
+hides both time fields and stores null times. With All Day off, both times are
+required in 24-hour `HH:mm` format (time pickers are also available). On the same
+day, End Time must be on or after Start Time. Description is limited to 500
+characters, matching the supplied design. Discard clears the current form.
+
+**Upload** opens the attachment dialog. Browse or drag/drop images or PDFs,
+then remove individual selections before submitting. Supported images are PNG,
+JPG/JPEG, GIF, WebP and BMP. The limit is five attachments of 10 MB each; file
+headers and extensions are checked before accepting them. Uploads happen only
+after the final No/Yes confirmation. The form stays open with its values and
+selected files if upload or save fails. It disables duplicate submissions while
+saving, closes after a successful save, and shows the request success dialog.
+The list refreshes through Firestore snapshots and includes attachment links.
+
+Records are created in the default Firestore database's `requests` collection.
+Change it with `--dart-define=REQUESTS_COLLECTION=your_collection_path`.
+The schema is `id`, `requestType`, `description`, `startDate`, `endDate`,
+`allDay`, `startTime`, `endTime`, `status: submitted`, `createdAt`, `attachments`.
+Dates are date-only values stored as UTC-midnight Firestore timestamps; times
+are wall-clock `HH:mm` strings. Each attachment contains `name`, `url`,
+`storagePath`, `contentType`, and byte `size`.
+
+Attachments use the configured Firebase Storage bucket under
+`request-attachments/<request-id>/`. Firestore stores metadata and download
+links, rather than file bytes. The bucket must be enabled, and its rules must
+allow uploads, downloads and cleanup deletes for the current user. Firestore
+rules must allow request reads and creates. The app uses the existing Firebase
+configuration and does not deploy rules or enable billing/buckets automatically.
+Newly uploaded files are cleaned up on a failed request create when deletion
+permissions and connectivity allow it. Existing files/requests are unaffected.
+Requests without attachments only require Firestore. No automatic sign-in or
+request approval workflow is included.
+
 ## Structure
 
 ```text

@@ -10,6 +10,9 @@ class CustomTextField extends StatelessWidget {
     required this.label,
     this.hintText,
     this.prefixIcon,
+    this.suffixIcon,
+    this.onTap,
+    this.maxLength,
     this.textColor,
     this.controller,
     this.initialValue,
@@ -36,6 +39,9 @@ class CustomTextField extends StatelessWidget {
   final String label;
   final String? hintText;
   final Widget? prefixIcon;
+  final Widget? suffixIcon;
+  final VoidCallback? onTap;
+  final int? maxLength;
   final Color? textColor;
   final TextEditingController? controller;
   final String? initialValue;
@@ -82,6 +88,8 @@ class CustomTextField extends StatelessWidget {
       const SizedBox(height: 8),
       TextFormField(
         controller: controller,
+        onTap: onTap,
+        maxLength: maxLength,
         initialValue: initialValue,
         focusNode: focusNode,
         style: _textStyle.copyWith(
@@ -109,6 +117,7 @@ class CustomTextField extends StatelessWidget {
         decoration: InputDecoration(
           hintText: hintText,
           prefixIcon: prefixIcon,
+          suffixIcon: suffixIcon,
           prefixIconConstraints: const BoxConstraints(
             minWidth: 32,
             minHeight: 36,

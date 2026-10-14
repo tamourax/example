@@ -9,6 +9,126 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get requests => 'Requests';
+
+  @override
+  String get submit => 'Submit';
+
+  @override
+  String get creatingRequestType => 'Creating New Request Type';
+
+  @override
+  String get creatingRequest => 'Creating Request';
+
+  @override
+  String get confirmNewRequest =>
+      'Are You Sure You Want To Create This Request ?';
+
+  @override
+  String get requestSubmitted => 'Your Request Has Been Successfully Submitted';
+
+  @override
+  String get requestType => 'Request Type';
+
+  @override
+  String get requestDescription => 'Request Description';
+
+  @override
+  String get startDate => 'Start Date';
+
+  @override
+  String get endDate => 'End Date';
+
+  @override
+  String get allDay => 'All Day';
+
+  @override
+  String get startTime => 'Start Time';
+
+  @override
+  String get endTime => 'End Time';
+
+  @override
+  String get requestAttachments => 'Request Attachments';
+
+  @override
+  String get upload => 'Upload';
+
+  @override
+  String get addingAttachment => 'Adding Attachment';
+
+  @override
+  String get dragDropFiles => 'Drag & Drop files here';
+
+  @override
+  String get or => 'Or';
+
+  @override
+  String get browseFiles => 'Browse Files';
+
+  @override
+  String get attachmentLimits => 'Images or PDF • Up to 5 files, 10 MB each';
+
+  @override
+  String get attachmentTooLarge => 'Each attachment must be 10 MB or smaller.';
+
+  @override
+  String get attachmentTooMany => 'You can attach up to 5 files per request.';
+
+  @override
+  String get attachmentUnsupported =>
+      'Choose a valid image (PNG, JPG, GIF, WebP, BMP) or PDF file.';
+
+  @override
+  String get attachmentReadFailed =>
+      'Could not read the selected file. Please try again.';
+
+  @override
+  String get attachmentOpenFailed =>
+      'Could not open this attachment. Please try again.';
+
+  @override
+  String get removeAttachment => 'Remove attachment';
+
+  @override
+  String get chooseDate => 'Choose date';
+
+  @override
+  String get chooseTime => 'Choose time';
+
+  @override
+  String get invalidRequestDate => 'Enter a valid date as YYYY-MM-DD';
+
+  @override
+  String get endDateBeforeStart => 'End Date must be on or after Start Date';
+
+  @override
+  String get invalidRequestTime => 'Enter a valid time as HH:mm (24-hour)';
+
+  @override
+  String get endTimeBeforeStart =>
+      'End Time must be on or after Start Time for the same day';
+
+  @override
+  String get noRequests =>
+      'No requests yet. Select Submit to create a request.';
+
+  @override
+  String get requestsLoadFailed => 'Could not load requests. Please try again.';
+
+  @override
+  String get requestSaveFailed =>
+      'Could not submit the request. Check your connection and try again.';
+
+  @override
+  String get requestSaveDenied =>
+      'You do not have permission to submit requests or upload attachments.';
+
+  @override
+  String get requestStorageUnavailable =>
+      'Attachment storage is unavailable. Try again or submit without attachments.';
+
+  @override
   String get locations => 'Locations';
 
   @override

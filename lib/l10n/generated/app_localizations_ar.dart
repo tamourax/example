@@ -9,6 +9,125 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get requests => 'الطلبات';
+
+  @override
+  String get submit => 'إرسال';
+
+  @override
+  String get creatingRequestType => 'إنشاء طلب جديد';
+
+  @override
+  String get creatingRequest => 'إنشاء طلب';
+
+  @override
+  String get confirmNewRequest => 'هل أنت متأكد أنك تريد إنشاء هذا الطلب؟';
+
+  @override
+  String get requestSubmitted => 'تم إرسال طلبك بنجاح';
+
+  @override
+  String get requestType => 'نوع الطلب';
+
+  @override
+  String get requestDescription => 'وصف الطلب';
+
+  @override
+  String get startDate => 'تاريخ البداية';
+
+  @override
+  String get endDate => 'تاريخ النهاية';
+
+  @override
+  String get allDay => 'طوال اليوم';
+
+  @override
+  String get startTime => 'وقت البداية';
+
+  @override
+  String get endTime => 'وقت النهاية';
+
+  @override
+  String get requestAttachments => 'مرفقات الطلب';
+
+  @override
+  String get upload => 'رفع';
+
+  @override
+  String get addingAttachment => 'إضافة مرفق';
+
+  @override
+  String get dragDropFiles => 'اسحب الملفات وأفلتها هنا';
+
+  @override
+  String get or => 'أو';
+
+  @override
+  String get browseFiles => 'تصفح الملفات';
+
+  @override
+  String get attachmentLimits =>
+      'صور أو PDF • حتى ٥ ملفات، ١٠ ميجابايت لكل ملف';
+
+  @override
+  String get attachmentTooLarge => 'يجب ألا يتجاوز حجم كل مرفق ١٠ ميجابايت.';
+
+  @override
+  String get attachmentTooMany => 'يمكنك إرفاق حتى ٥ ملفات لكل طلب.';
+
+  @override
+  String get attachmentUnsupported =>
+      'اختر صورة صالحة (PNG أو JPG أو GIF أو WebP أو BMP) أو ملف PDF.';
+
+  @override
+  String get attachmentReadFailed => 'تعذرت قراءة الملف المحدد. حاول مرة أخرى.';
+
+  @override
+  String get attachmentOpenFailed => 'تعذر فتح المرفق. حاول مرة أخرى.';
+
+  @override
+  String get removeAttachment => 'إزالة المرفق';
+
+  @override
+  String get chooseDate => 'اختيار التاريخ';
+
+  @override
+  String get chooseTime => 'اختيار الوقت';
+
+  @override
+  String get invalidRequestDate => 'أدخل تاريخاً صالحاً بصيغة YYYY-MM-DD';
+
+  @override
+  String get endDateBeforeStart =>
+      'يجب أن يكون تاريخ النهاية في تاريخ البداية أو بعده';
+
+  @override
+  String get invalidRequestTime =>
+      'أدخل وقتاً صالحاً بصيغة HH:mm بنظام ٢٤ ساعة';
+
+  @override
+  String get endTimeBeforeStart =>
+      'يجب أن يكون وقت النهاية في وقت البداية أو بعده في اليوم نفسه';
+
+  @override
+  String get noRequests => 'لا توجد طلبات بعد. اختر إرسال لإنشاء طلب.';
+
+  @override
+  String get requestsLoadFailed => 'تعذر تحميل الطلبات. حاول مرة أخرى.';
+
+  @override
+  String get requestSaveFailed =>
+      'تعذر إرسال الطلب. تحقق من الاتصال وحاول مرة أخرى.';
+
+  @override
+  String get requestSaveDenied =>
+      'ليس لديك صلاحية إرسال الطلبات أو رفع المرفقات.';
+
+  @override
+  String get requestStorageUnavailable =>
+      'تخزين المرفقات غير متاح. حاول مرة أخرى أو أرسل الطلب دون مرفقات.';
+
+  @override
   String get locations => 'المواقع';
 
   @override
