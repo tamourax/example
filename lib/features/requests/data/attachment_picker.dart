@@ -13,12 +13,15 @@ class FilePickerRequestAttachments implements RequestAttachmentPicker {
       type: FileType.custom,
       allowedExtensions: RequestAttachment.extensions,
     );
-    if (files.length > RequestAttachment.maxCount)
+    if (files.length > RequestAttachment.maxCount) {
       throw AttachmentFailure.tooMany;
+    }
     final attachments = <RequestAttachment>[];
     for (final file in files) {
-      if (await file.length() > RequestAttachment.maxBytes)
+      final length = await file.length();
+      if (length != null && length > RequestAttachment.maxBytes) {
         throw AttachmentFailure.tooLarge;
+      }
       attachments.add(
         RequestAttachment.fromBytes(file.name, await file.readAsBytes()),
       );

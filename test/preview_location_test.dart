@@ -38,7 +38,7 @@ void main() {
     }
 
     await capture('location-home-preview');
-    final context = tester.element(find.byType(Scaffold));
+    final context = tester.element(find.byType(Scaffold).last);
     showDialog<void>(
       context: context,
       builder: (_) => LocationFormDialog(
