@@ -61,6 +61,9 @@ class FirestoreService {
   Stream<DocumentSnapshot<Json>> watch(String collection, String id) =>
       _db.collection(collection).doc(id).snapshots();
 
+  Stream<QuerySnapshot<Json>> watchCollection(String collection) =>
+      _db.collection(collection).snapshots();
+
   /// Cursor pagination; the order field must exist on every document.
   Future<FirestorePage> page(
     String collection, {

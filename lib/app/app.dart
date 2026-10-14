@@ -4,6 +4,7 @@ import '../core/localization/l10n_extension.dart';
 import '../core/theme/app_theme.dart';
 import '../core/widgets/custom_buttons.dart';
 import '../features/home/presentation/home_page.dart';
+import '../features/locations/data/locations_repository.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'app_services.dart';
 import 'settings/app_settings_cubit.dart';
@@ -62,7 +63,11 @@ class App extends StatelessWidget {
                     ),
                   ),
                 )
-              : const HomePage(),
+              : HomePage(
+                  repository: services == null
+                      ? null
+                      : FirestoreLocationsRepository(services!.firestore),
+                ),
         ),
       ),
     );

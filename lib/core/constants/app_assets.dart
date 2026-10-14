@@ -1,4 +1,5 @@
 abstract final class AppAssets {
-  static const appMark = 'assets/icons/app_mark.svg';
+  static const locationHeader = 'assets/icons/locationHeader.svg';
+  static const success = 'assets/icons/sucess.svg';
   // Add PNG/JPG files to assets/images/ and declare their paths here.
 }

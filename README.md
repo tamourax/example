@@ -5,10 +5,42 @@ A reusable Flutter starter/template, currently named `example` (version
 Material 3 light and dark themes, Cubits, Dio REST networking, and Firebase Auth
 and Firestore services.
 
-The home screen is a component showcase: primary actions display a snackbar,
-secondary actions switch language, and the list starts empty. It does not read,
-seed, or modify Firestore data. There are no sign-in screens or feature data
-repositories yet.
+The home screen shows a live Locations list. “Creating New Locations” opens the
+responsive bilingual form. Create validates required English/Arabic addresses,
+the location name, Google Maps URL and coordinate ranges, then opens `AppDialog`
+with No/Yes actions. Yes saves through `FirestoreLocationsRepository`. Once the
+write completes, the form closes and `AppSuccess` uses the uploaded success SVG.
+Failed writes keep the form values and allow retry; saves disable duplicate
+submissions. Discard clears fields and switches. Arabic location name is optional.
+
+Opening the form requests device coordinates through Geolocator. Denied or
+unavailable location leaves fields editable and offers a flutter_map picker.
+Tap the map and choose “Use selected location” to fill coordinates. The picker
+uses OpenStreetMap tiles with attribution; it needs an internet connection.
+Device geolocation on deployed web apps requires HTTPS.
+
+Android includes coarse/fine location permissions, iOS includes the when-in-use
+usage description, and macOS includes the usage description and location
+entitlements. This project uses Swift Package Manager on Apple platforms. Build
+iOS with `BYPASS_PERMISSION_LOCATION_ALWAYS=1` in the build environment to keep
+Geolocator's permission handling limited to when-in-use (for example,
+`BYPASS_PERMISSION_LOCATION_ALWAYS=1 flutter build ios` on macOS).
+
+Firestore uses the configured project's **(default)** database and creates new
+documents under `locations`, storing `id`, `createdAt`, `nameEn`, `nameAr`,
+`mapsUrl`, numeric `latitude`/`longitude`, English/Arabic `country`, `state`,
+`city`, `postalCode` fields with `En`/`Ar` suffixes, and boolean `allowGeofence`,
+`allowBreaks`, `allowPause`. Existing documents are not overwritten. The supplied
+document ID `AtnulzbusAjAwCUXrFGW` has no confirmed collection path/schema yet.
+To use another collection (or nested collection path), run:
+
+```sh
+flutter run --dart-define=LOCATIONS_COLLECTION=your_collection_path
+```
+
+Firestore rules must permit reads and creates for the current user. The app
+does not change rules or sign users in automatically. `const App()` without
+services renders a preview; saving requires initialized Firebase services.
 
 Normal startup initializes Firebase before showing the home screen. A loading
 indicator appears during setup, and initialization failures show a localized
@@ -31,7 +63,8 @@ lib/
     state/                  AsyncCubit and initial/loading/success/failure state
     theme/                  AppColors, AppTypography, AppStyles, AppTheme
     widgets/                Shared UI components
-  features/home/            Starter screen built from shared widgets
+  features/home/            Live Locations list
+  features/locations/       Firestore repository, device location, form and map dialogs
   l10n/                     English/Arabic ARBs and generated Dart
   firebase_options.dart     FlutterFire-generated configuration
 assets/images/              PNG, JPG and WebP assets
@@ -101,7 +134,7 @@ const AppImage('assets/icons/locationHeader.svg', width: 80, height: 80);
 error fallbacks. Place your PNG files in the registered images directory.
 Both buttons support loading/disabled states and optional icons.
 `CustomMainButton` uses `AppColors.grey`; `CustomSecondaryButton` uses
-`AppColors.lightGrey`. Both have filled backgrounds, 4 px corners, and Cairo
+`AppColors.lightGrey`. Both have filled backgrounds, 8 px corners, and Cairo
 labels at 18 px / weight 500 in `AppColors.black`.
 `CustomMainCard` and `CustomSecondaryCard` provide filled/outlined cards with
 optional tap callbacks and configurable padding, margin, colors, and elevation.
@@ -159,8 +192,9 @@ context.read<AppSettingsCubit>().setThemeMode(ThemeMode.dark);
 ```
 
 The app starts in light mode and uses the device locale when supported, falling
-back to English. The showcase exposes language controls; theme changes are
-available programmatically. Preferences are not persisted across restarts.
+back to English. The location form displays both language columns; global locale
+and theme changes are available programmatically. Preferences are not persisted
+across restarts.
 
 ## REST
 
@@ -245,10 +279,10 @@ return snapshots with IDs. Future-based operations map backend errors into
 cursors. A feature repository must retain/reset cursors if it adapts Firestore
 pages to the generic Cubit.
 
-FlutterFire initializes the configured project, while the starter home screen
-does not read, create, or delete Firestore records. Use the generic CRUD and
-stream helpers from a feature repository when you add app logic. Reads and writes
-require deployed rules to allow them; the app does not seed or clear database data automatically.
+FlutterFire initializes the configured project. The Locations repository uses
+collection snapshots for automatic list refresh and `postWithId` to create
+locations. Reads and writes require deployed rules to allow them; the app does
+not seed or clear database data automatically.
 Manage the database in [Firebase Console](https://console.firebase.google.com/project/appy-d6c72/firestore).
 Firebase setup reference: [official Flutter guide](https://firebase.google.com/docs/flutter/setup).
 
@@ -273,7 +307,7 @@ verified in this review.
 
 | Area | Current limitation / next step |
 | --- | --- |
-| Home image | `AppAssets.appMark` points to `assets/icons/app_mark.svg`, which is missing. The home screen displays the broken-image fallback. Restore the SVG or update the constant to an existing asset. |
+| Home image | The location form uses the existing `Map Point.svg`. The unused `AppAssets.appMark` constant still points to a missing asset; restore it before using that constant elsewhere. |
 | Fonts | Cairo weights are registered and used by `CustomTextField`; set a theme font family if Cairo should apply throughout the app. |
 | Release logging | `AppLogger` keeps the default development filter, which suppresses release logs. Configure a production filter if release endpoint logging is required. |
 | Settings | Locale/theme changes are held in memory; add persistence if needed. |

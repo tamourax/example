@@ -9,6 +9,8 @@ class CustomTextField extends StatelessWidget {
     super.key,
     required this.label,
     this.hintText,
+    this.prefixIcon,
+    this.textColor,
     this.controller,
     this.initialValue,
     this.isRequired = false,
@@ -33,6 +35,8 @@ class CustomTextField extends StatelessWidget {
 
   final String label;
   final String? hintText;
+  final Widget? prefixIcon;
+  final Color? textColor;
   final TextEditingController? controller;
   final String? initialValue;
   final bool isRequired;
@@ -58,7 +62,7 @@ class CustomTextField extends StatelessWidget {
     fontFamily: 'Cairo',
     fontSize: 14,
     fontWeight: FontWeight.w500,
-    color: Color(0xFF4B5563),
+    color: AppColors.black,
   );
   static const _border = OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(4)),
@@ -80,7 +84,10 @@ class CustomTextField extends StatelessWidget {
         controller: controller,
         initialValue: initialValue,
         focusNode: focusNode,
-        style: _textStyle.copyWith(fontWeight: FontWeight.w400),
+        style: _textStyle.copyWith(
+          fontWeight: FontWeight.w400,
+          color: textColor,
+        ),
         keyboardType: keyboardType,
         textInputAction: textInputAction,
         inputFormatters: inputFormatters,
@@ -101,7 +108,14 @@ class CustomTextField extends StatelessWidget {
         },
         decoration: InputDecoration(
           hintText: hintText,
+          prefixIcon: prefixIcon,
+          prefixIconConstraints: const BoxConstraints(
+            minWidth: 32,
+            minHeight: 36,
+          ),
           hintStyle: _textStyle.copyWith(
+            fontFamily: 'Cairo',
+            fontSize: 12,
             fontWeight: FontWeight.w400,
             color: AppColors.hintTextColor,
           ),

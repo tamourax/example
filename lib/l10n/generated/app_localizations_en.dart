@@ -9,6 +9,72 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get locations => 'Locations';
+
+  @override
+  String get creatingLocations => 'Creating New Locations';
+
+  @override
+  String get confirmNewLocation =>
+      'Are You Sure You Want To Add New Location ?';
+
+  @override
+  String get yes => 'Yes';
+
+  @override
+  String get no => 'No';
+
+  @override
+  String get successful => 'Successful';
+
+  @override
+  String get locationAdded => 'You Successfully Added New Locations';
+
+  @override
+  String get noLocations => 'No locations yet. Create your first location.';
+
+  @override
+  String get locationsLoadFailed =>
+      'Could not load locations. Please try again.';
+
+  @override
+  String get locationSaveFailed =>
+      'Could not save this location. Check your connection and try again.';
+
+  @override
+  String get locationSaveDenied =>
+      'You do not have permission to add locations.';
+
+  @override
+  String get useDeviceLocation => 'Use device location';
+
+  @override
+  String get selectOnMap => 'Select on map';
+
+  @override
+  String get tapMapToSelect =>
+      'Tap the map to select a location. You can zoom and drag the map.';
+
+  @override
+  String get useSelectedLocation => 'Use selected location';
+
+  @override
+  String get locationPermissionDenied =>
+      'Location permission was denied. Enter coordinates manually or select on the map.';
+
+  @override
+  String get locationPermissionPermanent =>
+      'Location permission is blocked. Enable it in device or browser settings, enter coordinates manually, or select on the map.';
+
+  @override
+  String get locationServicesDisabled =>
+      'Location services are off. Enable them, enter coordinates manually, or select on the map.';
+
+  @override
+  String get deviceLocationUnavailable =>
+      'Device location is unavailable. Enter coordinates manually or select on the map.';
+
+  @override
   String get trackingTime => 'Tracking Time';
 
   @override

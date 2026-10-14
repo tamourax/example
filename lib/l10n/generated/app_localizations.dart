@@ -98,6 +98,120 @@ abstract class AppLocalizations {
     Locale('en'),
   ];
 
+  /// No description provided for @locations.
+  ///
+  /// In en, this message translates to:
+  /// **'Locations'**
+  String get locations;
+
+  /// No description provided for @creatingLocations.
+  ///
+  /// In en, this message translates to:
+  /// **'Creating New Locations'**
+  String get creatingLocations;
+
+  /// No description provided for @confirmNewLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Are You Sure You Want To Add New Location ?'**
+  String get confirmNewLocation;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yes;
+
+  /// No description provided for @no.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get no;
+
+  /// No description provided for @successful.
+  ///
+  /// In en, this message translates to:
+  /// **'Successful'**
+  String get successful;
+
+  /// No description provided for @locationAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'You Successfully Added New Locations'**
+  String get locationAdded;
+
+  /// No description provided for @noLocations.
+  ///
+  /// In en, this message translates to:
+  /// **'No locations yet. Create your first location.'**
+  String get noLocations;
+
+  /// No description provided for @locationsLoadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load locations. Please try again.'**
+  String get locationsLoadFailed;
+
+  /// No description provided for @locationSaveFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not save this location. Check your connection and try again.'**
+  String get locationSaveFailed;
+
+  /// No description provided for @locationSaveDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'You do not have permission to add locations.'**
+  String get locationSaveDenied;
+
+  /// No description provided for @useDeviceLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Use device location'**
+  String get useDeviceLocation;
+
+  /// No description provided for @selectOnMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Select on map'**
+  String get selectOnMap;
+
+  /// No description provided for @tapMapToSelect.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the map to select a location. You can zoom and drag the map.'**
+  String get tapMapToSelect;
+
+  /// No description provided for @useSelectedLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Use selected location'**
+  String get useSelectedLocation;
+
+  /// No description provided for @locationPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission was denied. Enter coordinates manually or select on the map.'**
+  String get locationPermissionDenied;
+
+  /// No description provided for @locationPermissionPermanent.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission is blocked. Enable it in device or browser settings, enter coordinates manually, or select on the map.'**
+  String get locationPermissionPermanent;
+
+  /// No description provided for @locationServicesDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Location services are off. Enable them, enter coordinates manually, or select on the map.'**
+  String get locationServicesDisabled;
+
+  /// No description provided for @deviceLocationUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Device location is unavailable. Enter coordinates manually or select on the map.'**
+  String get deviceLocationUnavailable;
+
   /// No description provided for @trackingTime.
   ///
   /// In en, this message translates to:

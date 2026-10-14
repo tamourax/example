@@ -12,10 +12,12 @@ ButtonStyle _buttonStyle(Color backgroundColor) => FilledButton.styleFrom(
     fontWeight: FontWeight.w500,
     height: 1.4,
   ),
-  minimumSize: const Size(0, 38),
+
+  fixedSize: const Size.fromHeight(38),
+ 
   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
   shape: const RoundedRectangleBorder(
-    borderRadius: BorderRadius.all(Radius.circular(4)),
+    borderRadius: BorderRadius.all(Radius.circular(8)),
   ),
   elevation: 0,
 );

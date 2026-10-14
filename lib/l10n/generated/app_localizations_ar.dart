@@ -9,6 +9,69 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get locations => 'المواقع';
+
+  @override
+  String get creatingLocations => 'إنشاء مواقع جديدة';
+
+  @override
+  String get confirmNewLocation => 'هل أنت متأكد أنك تريد إضافة موقع جديد؟';
+
+  @override
+  String get yes => 'نعم';
+
+  @override
+  String get no => 'لا';
+
+  @override
+  String get successful => 'تم بنجاح';
+
+  @override
+  String get locationAdded => 'تمت إضافة الموقع الجديد بنجاح';
+
+  @override
+  String get noLocations => 'لا توجد مواقع بعد. أضف موقعك الأول.';
+
+  @override
+  String get locationsLoadFailed => 'تعذر تحميل المواقع. حاول مرة أخرى.';
+
+  @override
+  String get locationSaveFailed =>
+      'تعذر حفظ الموقع. تحقق من الاتصال وحاول مرة أخرى.';
+
+  @override
+  String get locationSaveDenied => 'ليس لديك صلاحية إضافة مواقع.';
+
+  @override
+  String get useDeviceLocation => 'استخدام موقع الجهاز';
+
+  @override
+  String get selectOnMap => 'تحديد على الخريطة';
+
+  @override
+  String get tapMapToSelect =>
+      'اضغط على الخريطة لتحديد موقع. يمكنك تكبير الخريطة وتحريكها.';
+
+  @override
+  String get useSelectedLocation => 'استخدام الموقع المحدد';
+
+  @override
+  String get locationPermissionDenied =>
+      'تم رفض إذن الموقع. أدخل الإحداثيات يدوياً أو حدد الموقع على الخريطة.';
+
+  @override
+  String get locationPermissionPermanent =>
+      'إذن الموقع محظور. فعّله من إعدادات الجهاز أو المتصفح، أو أدخل الإحداثيات يدوياً، أو حدد الموقع على الخريطة.';
+
+  @override
+  String get locationServicesDisabled =>
+      'خدمات الموقع متوقفة. فعّلها أو أدخل الإحداثيات يدوياً أو حدد الموقع على الخريطة.';
+
+  @override
+  String get deviceLocationUnavailable =>
+      'موقع الجهاز غير متاح. أدخل الإحداثيات يدوياً أو حدد الموقع على الخريطة.';
+
+  @override
   String get trackingTime => 'تتبع الوقت';
 
   @override
