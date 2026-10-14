@@ -19,6 +19,10 @@ class FirestoreService {
   FirestoreService(this._db);
   final FirebaseFirestore _db;
 
+  /// Allocate an ID locally before uploading assets for a new record.
+  String newDocumentId(String collection) =>
+      _db.collection(collection).doc().id;
+
   Future<T> _guard<T>(Future<T> Function() operation) async {
     try {
       return await operation();
