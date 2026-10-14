@@ -41,6 +41,13 @@ class FirestoreService {
   Future<String> post(String collection, Json data) =>
       _guard(() async => (await _db.collection(collection).add(data)).id);
 
+  /// Creates a document and writes its generated ID into its `id` field.
+  Future<String> postWithId(String collection, Json data) => _guard(() async {
+    final document = _db.collection(collection).doc();
+    await document.set({...data, 'id': document.id});
+    return document.id;
+  });
+
   /// Replaces the document (or creates it). Use patch for a partial update.
   Future<void> put(String collection, String id, Json data) =>
       _guard(() => _db.collection(collection).doc(id).set(data));

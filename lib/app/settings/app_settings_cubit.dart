@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppSettingsState extends Equatable {
-  const AppSettingsState({this.locale, this.themeMode = ThemeMode.system});
+  const AppSettingsState({this.locale, this.themeMode = ThemeMode.light});
   final Locale? locale;
   final ThemeMode themeMode;
   @override

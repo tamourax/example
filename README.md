@@ -1,10 +1,10 @@
 # Flutter application foundation
 
 This existing project now has shared widgets, English/Arabic ARB localization
-(including RTL), Material 3 light/dark themes, Cubits, REST networking and Firebase.
-The home screen demonstrates the shared components and manages customer records
-in Firestore collection `2` using the schema shown in the Firebase Console image.
-`App()` can still run without Firebase for previews by using local demo data.
+(including RTL), a Material 3 light theme, Cubits, REST networking and Firebase.
+The home screen is a clean component showcase. It does not read, seed, or modify
+Firestore data. Firebase initialization and reusable database helpers remain
+available for feature repositories when you add application logic.
 
 ## Structure
 
@@ -17,13 +17,13 @@ lib/
     errors/                 Common AppFailure
     firebase/               Firestore CRUD, streams and cursor pagination
     localization/           context.l10n extension
-    logging/                Debug logger and Bloc observer
-    network/                Dio client, auth interceptor, safe request logging
+    logging/                Logger and Bloc observer
+    network/                Dio client, auth interceptor, endpoint logging
     pagination/             Generic PaginationCubit and PaginationState
     state/                  AsyncCubit and initial/loading/success/failure state
     theme/                  AppColors, AppTypography, AppStyles, AppTheme
     widgets/                Shared UI components
-  features/home/            Example repository, Cubit, screen
+  features/home/            Starter screen built from shared widgets
   l10n/                     English/Arabic ARBs and generated Dart
   firebase_options.dart     FlutterFire-generated configuration
 assets/images/              PNG, JPG and WebP assets
@@ -46,7 +46,7 @@ To enable REST, provide your actual backend URL:
 flutter run --dart-define=API_BASE_URL=https://your-api.example.com/
 ```
 
-Without this value `AppServices.api` is null; Firebase and the demo remain usable.
+Without this value `AppServices.api` is null; Firebase initialization and Firestore helpers remain available.
 `AppServices` is injected above the app via `RepositoryProvider`.
 Keep data operations in feature repositories and inject those into Cubits.
 Add `domain/` inside a feature when business rules need their own layer.
@@ -109,9 +109,9 @@ await api.delete('users/123');
 
 Responses are JSON data; decode them into feature models in your repository.
 Requests support Dio `CancelToken` and bounded timeouts. Errors become
-`AppFailure` with code/status for localized UI handling. Logs omit URL, tokens,
-headers and bodies and are disabled outside debug builds. No automatic retries
-are applied to mutations. If your backend verifies Firebase ID tokens, construct
+`AppFailure` with code/status for localized UI handling. The interceptor logs
+method and endpoint URL for each request, response, and failure; query parameters,
+headers and bodies are omitted. No automatic retries are applied to mutations. If your backend verifies Firebase ID tokens, construct
 `ApiClient` with `tokenProvider: () async => FirebaseAuth.instance.currentUser?.getIdToken()`.
 
 ## Firebase project appy-d6c72
@@ -149,13 +149,9 @@ equivalent get/post/put/patch/delete methods. Cursor pages expose document IDs,
 pages, and reset the cursor on refresh. Ordered fields must exist in documents;
 custom queries may need indexes. Map snapshots to your own models.
 
-The configured Firebase project has a native Firestore `(default)` database in
-`nam5` (Standard edition), with real-time updates enabled and scheduled backups
-disabled. `FirebaseFirestore.instance` in this starter connects to that default
-database. The home screen pages through collection `2`; use its add button and
-row menu to create, edit, and delete documents with `name`, `date`, `gender`,
-and `id` fields. Pull down to refresh. `FirestoreService.watch` is available for
-live document updates. Reads/writes require deployed rules to allow them; the app
-does not seed records or change deployed security rules.
+FlutterFire initializes the configured project, while the starter home screen
+does not read, create, or delete Firestore records. Use the generic CRUD and
+stream helpers from a feature repository when you add app logic. Reads and writes
+require deployed rules to allow them; the app does not seed or clear database data automatically.
 Manage the database in [Firebase Console](https://console.firebase.google.com/project/appy-d6c72/firestore).
 Firebase setup reference: [official Flutter guide](https://firebase.google.com/docs/flutter/setup).

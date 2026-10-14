@@ -119,7 +119,7 @@ abstract class AppLocalizations {
   /// No description provided for @primaryAction.
   ///
   /// In en, this message translates to:
-  /// **'Refresh list'**
+  /// **'Primary button'**
   String get primaryAction;
 
   /// No description provided for @secondaryAction.
@@ -155,7 +155,7 @@ abstract class AppLocalizations {
   /// No description provided for @listTitle.
   ///
   /// In en, this message translates to:
-  /// **'Pagination example'**
+  /// **'List widget preview'**
   String get listTitle;
 
   /// No description provided for @firebaseUnavailable.
@@ -169,6 +169,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Retry setup'**
   String get restart;
+
+  /// No description provided for @changeLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Change language'**
+  String get changeLanguage;
+
+  /// No description provided for @componentReady.
+  ///
+  /// In en, this message translates to:
+  /// **'The shared components are ready to use.'**
+  String get componentReady;
 }
 
 class _AppLocalizationsDelegate

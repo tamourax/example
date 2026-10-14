@@ -4,26 +4,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('demo loads, switches to Arabic RTL, and paginates to the end', (
+  testWidgets('starter home has no sample records and supports Arabic RTL', (
     tester,
   ) async {
     await tester.pumpWidget(const App());
     await tester.pumpAndSettle();
     expect(find.text('Your foundation is ready'), findsOneWidget);
-    expect(find.text('Item 1'), findsOneWidget);
-    await tester.tap(find.text('Change language'));
+    expect(find.text('Nothing here yet'), findsOneWidget);
+    expect(find.text('Item 1'), findsNothing);
+    await tester.tap(find.byTooltip('Change language'));
     await tester.pumpAndSettle();
-    expect(find.text('أساس تطبيقك جاهز'), findsOneWidget);
+    final arabicWelcome = String.fromCharCodes([
+      0x0623,
+      0x0633,
+      0x0627,
+      0x0633,
+      0x0020,
+      0x062a,
+      0x0637,
+      0x0628,
+      0x064a,
+      0x0642,
+      0x0643,
+      0x0020,
+      0x062c,
+      0x0627,
+      0x0647,
+      0x0632,
+    ]);
+    expect(find.text(arabicWelcome), findsOneWidget);
     expect(
-      Directionality.of(tester.element(find.text('أساس تطبيقك جاهز'))),
+      Directionality.of(tester.element(find.text(arabicWelcome))),
       TextDirection.rtl,
     );
-    for (var i = 0; i < 30; i++) {
-      await tester.drag(find.byType(ListView), const Offset(0, -600));
-      await tester.pumpAndSettle();
-    }
-    expect(find.text('العنصر 53'), findsOneWidget);
-    expect(tester.takeException(), isNull);
   });
 
   testWidgets('loading primary button prevents duplicate submits', (

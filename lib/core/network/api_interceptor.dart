@@ -7,6 +7,9 @@ class ApiInterceptor extends Interceptor {
   ApiInterceptor({this.tokenProvider});
   final TokenProvider? tokenProvider;
 
+  String _endpoint(RequestOptions options) =>
+      options.uri.replace(query: '', fragment: '').toString();
+
   @override
   void onRequest(
     RequestOptions options,
@@ -17,8 +20,7 @@ class ApiInterceptor extends Interceptor {
       if (token != null && token.isNotEmpty) {
         options.headers['Authorization'] = 'Bearer $token';
       }
-      // Log method/status only; paths, query, headers and bodies may contain PII.
-      AppLogger.instance.d('HTTP ${options.method} started');
+      AppLogger.instance.i('HTTP ${options.method} ${_endpoint(options)}');
       handler.next(options);
     } catch (error, stackTrace) {
       handler.reject(
@@ -36,8 +38,9 @@ class ApiInterceptor extends Interceptor {
     Response<dynamic> response,
     ResponseInterceptorHandler handler,
   ) {
-    AppLogger.instance.d(
-      'HTTP ${response.requestOptions.method}: ${response.statusCode}',
+    AppLogger.instance.i(
+      'HTTP ${response.requestOptions.method} ${_endpoint(response.requestOptions)} '
+      '-> ${response.statusCode}',
     );
     handler.next(response);
   }
@@ -45,7 +48,8 @@ class ApiInterceptor extends Interceptor {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
     AppLogger.instance.w(
-      'HTTP ${err.requestOptions.method}: ${err.type.name} (${err.response?.statusCode})',
+      'HTTP ${err.requestOptions.method} ${_endpoint(err.requestOptions)} '
+      '-> ${err.type.name} (${err.response?.statusCode})',
     );
     handler.next(err);
   }

@@ -3,14 +3,16 @@
   "appTitle": "App Starter",
   "welcome": "Your foundation is ready",
   "description": "Reusable widgets, localization, Cubit, REST and Firebase services.",
-  "primaryAction": "Refresh list",
+  "primaryAction": "Primary button",
   "secondaryAction": "Change language",
   "emptyList": "Nothing here yet",
   "somethingWentWrong": "Something went wrong. Please try again.",
   "retry": "Try again",
   "itemTitle": "Item {number}",
   "@itemTitle": {"placeholders": {"number": {"type": "int"}}},
-  "listTitle": "Pagination example",
+  "listTitle": "List widget preview",
   "firebaseUnavailable": "Firebase is unavailable. Check configuration and restart.",
-  "restart": "Retry setup"
+  "restart": "Retry setup",
+  "changeLanguage": "Change language",
+  "componentReady": "The shared components are ready to use."
 }

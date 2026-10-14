@@ -19,7 +19,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'عناصر قابلة لإعادة الاستخدام، ترجمة، Cubit، وخدمات REST وFirebase.';
 
   @override
-  String get primaryAction => 'تحديث القائمة';
+  String get primaryAction => 'الزر الرئيسي';
 
   @override
   String get secondaryAction => 'تغيير اللغة';
@@ -39,7 +39,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get listTitle => 'مثال تحميل القائمة تدريجيًا';
+  String get listTitle => 'معاينة ويدجت القائمة';
 
   @override
   String get firebaseUnavailable =>
@@ -47,4 +47,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get restart => 'إعادة محاولة الإعداد';
+
+  @override
+  String get changeLanguage => 'تغيير اللغة';
+
+  @override
+  String get componentReady => 'العناصر المشتركة جاهزة للاستخدام.';
 }

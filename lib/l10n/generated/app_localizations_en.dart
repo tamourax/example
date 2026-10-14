@@ -19,7 +19,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Reusable widgets, localization, Cubit, REST and Firebase services.';
 
   @override
-  String get primaryAction => 'Refresh list';
+  String get primaryAction => 'Primary button';
 
   @override
   String get secondaryAction => 'Change language';
@@ -39,7 +39,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get listTitle => 'Pagination example';
+  String get listTitle => 'List widget preview';
 
   @override
   String get firebaseUnavailable =>
@@ -47,4 +47,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get restart => 'Retry setup';
+
+  @override
+  String get changeLanguage => 'Change language';
+
+  @override
+  String get componentReady => 'The shared components are ready to use.';
 }

@@ -7,81 +7,78 @@ import '../../../core/theme/app_styles.dart';
 import '../../../core/widgets/app_image.dart';
 import '../../../core/widgets/custom_app_bar.dart';
 import '../../../core/widgets/custom_buttons.dart';
-import '../../../core/widgets/custom_paginated_list_view.dart';
+import '../../../core/widgets/custom_list_view.dart';
 import '../../../core/widgets/custom_text.dart';
-import '../data/demo_repository.dart';
-import 'cubit/home_cubit.dart';
 
+/// A clean starter screen: shared components only, with no sample records or data source.
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-  @override
-  Widget build(BuildContext context) => BlocProvider(
-    create: (_) => HomeCubit(DemoRepository())..loadNextPage(),
-    child: const _HomeView(),
-  );
-}
 
-class _HomeView extends StatelessWidget {
-  const _HomeView();
   @override
-  Widget build(BuildContext context) {
-    final cubit = context.read<HomeCubit>();
-    return Scaffold(
-      appBar: CustomAppBar(title: context.l10n.appTitle),
-      body: SafeArea(
+  Widget build(BuildContext context) => Scaffold(
+    appBar: CustomAppBar(
+      title: context.l10n.appTitle,
+      actions: [
+        IconButton(
+          tooltip: context.l10n.changeLanguage,
+          onPressed: () {
+            final isArabic =
+                Localizations.localeOf(context).languageCode == 'ar';
+            context.read<AppSettingsCubit>().setLocale(
+              Locale(isArabic ? 'en' : 'ar'),
+            );
+          },
+          icon: const Icon(Icons.translate),
+        ),
+      ],
+    ),
+    body: SafeArea(
+      child: Padding(
+        padding: AppStyles.pagePadding,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Padding(
-              padding: AppStyles.pagePadding,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const AppImage(AppAssets.appMark, width: 48, height: 48),
-                  const SizedBox(height: 12),
-                  CustomText(
-                    context.l10n.welcome,
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                  CustomText(context.l10n.description),
-                  const SizedBox(height: 16),
-                  CustomMainButton(
-                    label: context.l10n.primaryAction,
-                    onPressed: cubit.refresh,
-                  ),
-                  const SizedBox(height: 8),
-                  CustomSecondaryButton(
-                    label: context.l10n.secondaryAction,
-                    onPressed: () {
-                      final arabic =
-                          Localizations.localeOf(context).languageCode == 'ar';
-                      context.read<AppSettingsCubit>().setLocale(
-                        Locale(arabic ? 'en' : 'ar'),
-                      );
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  CustomText(
-                    context.l10n.listTitle,
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                ],
+            const AppImage(AppAssets.appMark, width: 48, height: 48),
+            const SizedBox(height: 12),
+            CustomText(
+              context.l10n.welcome,
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            CustomText(context.l10n.description),
+            const SizedBox(height: 16),
+            CustomMainButton(
+              label: context.l10n.primaryAction,
+              onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(context.l10n.componentReady)),
               ),
             ),
+            const SizedBox(height: 8),
+            CustomSecondaryButton(
+              label: context.l10n.secondaryAction,
+              onPressed: () {
+                final isArabic =
+                    Localizations.localeOf(context).languageCode == 'ar';
+                context.read<AppSettingsCubit>().setLocale(
+                  Locale(isArabic ? 'en' : 'ar'),
+                );
+              },
+            ),
+            const SizedBox(height: 20),
+            CustomText(
+              context.l10n.listTitle,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: 8),
             Expanded(
-              child: CustomPaginatedListView<int>(
-                cubit: cubit,
-                itemBuilder: (context, item, index) => Card(
-                  child: ListTile(
-                    leading: const Icon(Icons.check_circle_outline),
-                    title: CustomText(context.l10n.itemTitle(item)),
-                  ),
-                ),
+              child: CustomListView<String>(
+                items: const [],
+                itemBuilder: (context, item, index) => CustomText(item),
+                padding: EdgeInsets.zero,
               ),
             ),
           ],
         ),
       ),
-    );
-  }
+    ),
+  );
 }
