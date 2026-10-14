@@ -7,6 +7,7 @@ import '../../../core/theme/app_styles.dart';
 import '../../../core/widgets/app_image.dart';
 import '../../../core/widgets/custom_app_bar.dart';
 import '../../../core/widgets/custom_buttons.dart';
+import '../../../core/widgets/custom_cards.dart';
 import '../../../core/widgets/custom_list_view.dart';
 import '../../../core/widgets/custom_text.dart';
 
@@ -62,6 +63,52 @@ class HomePage extends StatelessWidget {
                   Locale(isArabic ? 'en' : 'ar'),
                 );
               },
+            ),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  child: CustomMainCard(
+                    onTap: () => ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(context.l10n.componentReady)),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(Icons.dashboard_outlined),
+                        const SizedBox(height: 8),
+                        Text(
+                          context.l10n.primaryAction,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: CustomSecondaryCard(
+                    onTap: () {
+                      final isArabic =
+                          Localizations.localeOf(context).languageCode == 'ar';
+                      context.read<AppSettingsCubit>().setLocale(
+                        Locale(isArabic ? 'en' : 'ar'),
+                      );
+                    },
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(Icons.widgets_outlined),
+                        const SizedBox(height: 8),
+                        Text(
+                          context.l10n.secondaryAction,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 20),
             CustomText(
